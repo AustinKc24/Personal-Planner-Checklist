@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import { AddEvent } from "./components/AddEvent";
 import { Event } from "./components/Event";
 import axios from "axios";
 import { API_URL } from "./utils";
+import { Amplify } from "aws-amplify";
+import {withAuthenticator} from "@aws-amplify/ui-react";
+import '@aws-amplify/ui-react/styles.css';
+import config from './amplifyconfiguration.json';
 
-// const darkTheme = createTheme({
-//   palette: {
-//     mode: "dark",
-//   },
-// });
+Amplify.configure(config);
 
-export default function App() {
+function App({signOut, user}) {
   const [events, setEvents] = useState([]);
 
   const fetchEvents = async () => {
@@ -30,14 +28,17 @@ export default function App() {
   }, []);
 
   return (
-    // <ThemeProvider theme={darkTheme}>
-      // <CssBaseline />
       <>
-      <AddEvent fetchEvents={fetchEvents} />
-      {events.map((event) => (
-        <Event event={event} key={event.id} fetchEvents={fetchEvents} />
-      ))}
+      <div className="App">
+        <AddEvent fetchEvents={fetchEvents} />
+        {events.map((event) => (
+          <Event event={event} key={event.id} fetchEvents={fetchEvents} />
+        ))}
+        <button onClick={signOut}>Sign out</button>
+      </div>
+        
       </>
-    // </ThemeProvider>
   );
 }
+
+export default withAuthenticator(App);
