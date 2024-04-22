@@ -27,7 +27,7 @@ export const Event = ({ event, fetchEvents }) => {
 
   const handleDeleteEvent = async () => {
     try {
-      await axios.delete(`${API_URL}/${event.id}`);
+      await axios.delete(`${ API_URL }/${event.id}`);
 
       await fetchEvents();
     } catch (err) {
