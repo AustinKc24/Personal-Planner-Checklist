@@ -30,12 +30,14 @@ export default function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
+    // <ThemeProvider theme={darkTheme}>
+      // <CssBaseline />
+      <>
       <AddEvent fetchEvents={fetchEvents} />
       {events.map((event) => (
         <Event event={event} key={event.id} fetchEvents={fetchEvents} />
       ))}
-    </ThemeProvider>
+      </>
+    // </ThemeProvider>
   );
 }
