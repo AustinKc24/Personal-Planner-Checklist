@@ -25,7 +25,7 @@ export const AddEvent = ({ fetchEvents }) => {
 
   return (
     <div>
-      <Typography align="center" variant="h1" paddingTop={2} paddingBottom={2}>
+      <Typography align="center" variant="h3" paddingTop={2} paddingBottom={2}>
         Personal Planner Checklist!
       </Typography>
       <div className="addEvent">
