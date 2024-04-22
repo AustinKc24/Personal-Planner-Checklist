@@ -56,7 +56,7 @@ app.put("/event", async (req, res) => {
 });
 
 //Deletes Events
-app.delete("/events/:id", async (req, res) => {
+app.delete("/event/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
