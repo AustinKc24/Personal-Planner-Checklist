@@ -6,11 +6,11 @@ import { Event } from "./components/Event";
 import axios from "axios";
 import { API_URL } from "./utils";
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+// const darkTheme = createTheme({
+//   palette: {
+//     mode: "dark",
+//   },
+// });
 
 export default function App() {
   const [events, setEvents] = useState([]);

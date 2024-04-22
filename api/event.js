@@ -11,6 +11,7 @@ import crypto from "crypto";
 const client = new DynamoDBClient({ region: "us-east-2" });
 const docClient = DynamoDBDocumentClient.from(client);
 
+
 export const fetchEvents = async () => {
   const command = new ScanCommand({
     ExpressionAttributeNames: { "#name": "name" },
